@@ -1,0 +1,20 @@
+c:\users\diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\bin\Debug\CARMETRO.Presentacion.exe.config
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\bin\Debug\CARMETRO.Presentacion.exe
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\bin\Debug\CARMETRO.Presentacion.pdb
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\bin\Debug\CARMETRO.Negocio.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\bin\Debug\CARMETRO.Datos.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\bin\Debug\EntityFramework.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\bin\Debug\CARMETRO.Negocio.pdb
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\bin\Debug\CARMETRO.Datos.pdb
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\bin\Debug\EntityFramework.xml
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.csprojResolveAssemblyReference.cache
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.estacionamiento.frmEstacionamiento.resources
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.Properties.Resources.resources
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.reporte.frmReporte.resources
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.vehiculo.frmVehiculo.resources
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.csproj.GenerateResource.Cache
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.exe
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.pdb
+F:\Diana\Academico\4A\CUARTO A\Lenguaje de Programación 2\CARMETRO\CARMETRO\CARMETRO.Presentacion\bin\Debug\CARMETRO.Presentacion.exe.config
+F:\Diana\Academico\4A\CUARTO A\Lenguaje de Programación 2\CARMETRO\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.exe
+F:\Diana\Academico\4A\CUARTO A\Lenguaje de Programación 2\CARMETRO\CARMETRO\CARMETRO.Presentacion\obj\Debug\CARMETRO.Presentacion.pdb
