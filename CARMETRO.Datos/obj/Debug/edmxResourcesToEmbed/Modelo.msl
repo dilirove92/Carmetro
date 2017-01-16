@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="pruebaModelStoreContainer" CdmEntityContainer="ParqueoEntity">
+    <EntitySetMapping Name="area_estacionamiento">
+      <EntityTypeMapping TypeName="pruebaModel.area_estacionamiento">
+        <MappingFragment StoreEntitySet="area_estacionamiento">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="posicion" ColumnName="posicion" />
+          <ScalarProperty Name="id_piso" ColumnName="id_piso" />
+          <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+          <ScalarProperty Name="hora_entrada" ColumnName="hora_entrada" />
+          <ScalarProperty Name="hora_salida" ColumnName="hora_salida" />
+          <ScalarProperty Name="total_facturado" ColumnName="total_facturado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="area_estacionamiento_pagos">
+      <EntityTypeMapping TypeName="pruebaModel.area_estacionamiento_pagos">
+        <MappingFragment StoreEntitySet="area_estacionamiento_pagos">
+          <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+          <ScalarProperty Name="id_area_estacionamiento" ColumnName="id_area_estacionamiento" />
+          <ScalarProperty Name="descripcion_pago" ColumnName="descripcion_pago" />
+          <ScalarProperty Name="valor_facturado" ColumnName="valor_facturado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pisoes">
+      <EntityTypeMapping TypeName="pruebaModel.piso">
+        <MappingFragment StoreEntitySet="piso">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="propietarios">
+      <EntityTypeMapping TypeName="pruebaModel.propietario">
+        <MappingFragment StoreEntitySet="propietario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehiculoes">
+      <EntityTypeMapping TypeName="pruebaModel.vehiculo">
+        <MappingFragment StoreEntitySet="vehiculo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="placa" ColumnName="placa" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="id_propietario" ColumnName="id_propietario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

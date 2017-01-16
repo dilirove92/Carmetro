@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="pruebaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="pruebaModelStoreContainer">
+          <EntitySet Name="area_estacionamiento" EntityType="pruebaModel.Store.area_estacionamiento" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="area_estacionamiento_pagos" EntityType="pruebaModel.Store.area_estacionamiento_pagos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="piso" EntityType="pruebaModel.Store.piso" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="propietario" EntityType="pruebaModel.Store.propietario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="vehiculo" EntityType="pruebaModel.Store.vehiculo" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_area_estacionamiento_pagos_area_estacionamiento" Association="pruebaModel.Store.FK_area_estacionamiento_pagos_area_estacionamiento">
+            <End Role="area_estacionamiento" EntitySet="area_estacionamiento" />
+            <End Role="area_estacionamiento_pagos" EntitySet="area_estacionamiento_pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_area_estacionamiento_piso" Association="pruebaModel.Store.FK_area_estacionamiento_piso">
+            <End Role="piso" EntitySet="piso" />
+            <End Role="area_estacionamiento" EntitySet="area_estacionamiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_area_estacionamiento_vehiculo" Association="pruebaModel.Store.FK_area_estacionamiento_vehiculo">
+            <End Role="vehiculo" EntitySet="vehiculo" />
+            <End Role="area_estacionamiento" EntitySet="area_estacionamiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehiculo_propietario" Association="pruebaModel.Store.FK_vehiculo_propietario">
+            <End Role="propietario" EntitySet="propietario" />
+            <End Role="vehiculo" EntitySet="vehiculo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="area_estacionamiento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="posicion" Type="int" Nullable="false" />
+          <Property Name="id_piso" Type="int" Nullable="false" />
+          <Property Name="id_vehiculo" Type="int" Nullable="false" />
+          <Property Name="hora_entrada" Type="datetime" Nullable="false" />
+          <Property Name="hora_salida" Type="datetime" Nullable="false" />
+          <Property Name="total_facturado" Type="decimal" Nullable="false" Precision="8" Scale="2" />
+        </EntityType>
+        <EntityType Name="area_estacionamiento_pagos">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_area_estacionamiento" Type="int" Nullable="false" />
+          <Property Name="descripcion_pago" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="valor_facturado" Type="decimal" Nullable="false" Precision="8" Scale="2" />
+        </EntityType>
+        <EntityType Name="piso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="numero" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="propietario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cedula" Type="varchar" Nullable="false" MaxLength="13" />
+          <Property Name="nombres" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="apellidos" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="fecha_nacimiento" Type="date" Nullable="false" />
+          <Property Name="correo" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="vehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="placa" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="color" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="marca" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="id_propietario" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_area_estacionamiento_pagos_area_estacionamiento">
+          <End Role="area_estacionamiento" Type="pruebaModel.Store.area_estacionamiento" Multiplicity="1" />
+          <End Role="area_estacionamiento_pagos" Type="pruebaModel.Store.area_estacionamiento_pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="area_estacionamiento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="area_estacionamiento_pagos">
+              <PropertyRef Name="id_area_estacionamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_area_estacionamiento_piso">
+          <End Role="piso" Type="pruebaModel.Store.piso" Multiplicity="1" />
+          <End Role="area_estacionamiento" Type="pruebaModel.Store.area_estacionamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="piso">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="area_estacionamiento">
+              <PropertyRef Name="id_piso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_area_estacionamiento_vehiculo">
+          <End Role="vehiculo" Type="pruebaModel.Store.vehiculo" Multiplicity="1" />
+          <End Role="area_estacionamiento" Type="pruebaModel.Store.area_estacionamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="area_estacionamiento">
+              <PropertyRef Name="id_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehiculo_propietario">
+          <End Role="propietario" Type="pruebaModel.Store.propietario" Multiplicity="1" />
+          <End Role="vehiculo" Type="pruebaModel.Store.vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="propietario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vehiculo">
+              <PropertyRef Name="id_propietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pruebaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ParqueoEntity" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="area_estacionamiento" EntityType="pruebaModel.area_estacionamiento" />
+          <EntitySet Name="area_estacionamiento_pagos" EntityType="pruebaModel.area_estacionamiento_pagos" />
+          <EntitySet Name="pisoes" EntityType="pruebaModel.piso" />
+          <EntitySet Name="propietarios" EntityType="pruebaModel.propietario" />
+          <EntitySet Name="vehiculoes" EntityType="pruebaModel.vehiculo" />
+          <AssociationSet Name="FK_area_estacionamiento_pagos_area_estacionamiento" Association="pruebaModel.FK_area_estacionamiento_pagos_area_estacionamiento">
+            <End Role="area_estacionamiento" EntitySet="area_estacionamiento" />
+            <End Role="area_estacionamiento_pagos" EntitySet="area_estacionamiento_pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_area_estacionamiento_piso" Association="pruebaModel.FK_area_estacionamiento_piso">
+            <End Role="piso" EntitySet="pisoes" />
+            <End Role="area_estacionamiento" EntitySet="area_estacionamiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_area_estacionamiento_vehiculo" Association="pruebaModel.FK_area_estacionamiento_vehiculo">
+            <End Role="vehiculo" EntitySet="vehiculoes" />
+            <End Role="area_estacionamiento" EntitySet="area_estacionamiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vehiculo_propietario" Association="pruebaModel.FK_vehiculo_propietario">
+            <End Role="propietario" EntitySet="propietarios" />
+            <End Role="vehiculo" EntitySet="vehiculoes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="area_estacionamiento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="posicion" Type="Int32" Nullable="false" />
+          <Property Name="id_piso" Type="Int32" Nullable="false" />
+          <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
+          <Property Name="hora_entrada" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="hora_salida" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="total_facturado" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <NavigationProperty Name="area_estacionamiento_pagos" Relationship="pruebaModel.FK_area_estacionamiento_pagos_area_estacionamiento" FromRole="area_estacionamiento" ToRole="area_estacionamiento_pagos" />
+          <NavigationProperty Name="piso" Relationship="pruebaModel.FK_area_estacionamiento_piso" FromRole="area_estacionamiento" ToRole="piso" />
+          <NavigationProperty Name="vehiculo" Relationship="pruebaModel.FK_area_estacionamiento_vehiculo" FromRole="area_estacionamiento" ToRole="vehiculo" />
+        </EntityType>
+        <EntityType Name="area_estacionamiento_pagos">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="Int32" Nullable="false" />
+          <Property Name="id_area_estacionamiento" Type="Int32" Nullable="false" />
+          <Property Name="descripcion_pago" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="valor_facturado" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <NavigationProperty Name="area_estacionamiento" Relationship="pruebaModel.FK_area_estacionamiento_pagos_area_estacionamiento" FromRole="area_estacionamiento_pagos" ToRole="area_estacionamiento" />
+        </EntityType>
+        <EntityType Name="piso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="numero" Type="Int32" />
+          <Property Name="descripcion" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="area_estacionamiento" Relationship="pruebaModel.FK_area_estacionamiento_piso" FromRole="piso" ToRole="area_estacionamiento" />
+        </EntityType>
+        <EntityType Name="propietario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="cedula" Type="String" Nullable="false" MaxLength="13" Unicode="false" FixedLength="false" />
+          <Property Name="nombres" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="apellidos" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="correo" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="vehiculoes" Relationship="pruebaModel.FK_vehiculo_propietario" FromRole="propietario" ToRole="vehiculo" />
+        </EntityType>
+        <EntityType Name="vehiculo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="placa" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="color" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="marca" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="id_propietario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="area_estacionamiento" Relationship="pruebaModel.FK_area_estacionamiento_vehiculo" FromRole="vehiculo" ToRole="area_estacionamiento" />
+          <NavigationProperty Name="propietario" Relationship="pruebaModel.FK_vehiculo_propietario" FromRole="vehiculo" ToRole="propietario" />
+        </EntityType>
+        <Association Name="FK_area_estacionamiento_pagos_area_estacionamiento">
+          <End Role="area_estacionamiento" Type="pruebaModel.area_estacionamiento" Multiplicity="1" />
+          <End Role="area_estacionamiento_pagos" Type="pruebaModel.area_estacionamiento_pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="area_estacionamiento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="area_estacionamiento_pagos">
+              <PropertyRef Name="id_area_estacionamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_area_estacionamiento_piso">
+          <End Role="piso" Type="pruebaModel.piso" Multiplicity="1" />
+          <End Role="area_estacionamiento" Type="pruebaModel.area_estacionamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="piso">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="area_estacionamiento">
+              <PropertyRef Name="id_piso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_area_estacionamiento_vehiculo">
+          <End Role="vehiculo" Type="pruebaModel.vehiculo" Multiplicity="1" />
+          <End Role="area_estacionamiento" Type="pruebaModel.area_estacionamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="area_estacionamiento">
+              <PropertyRef Name="id_vehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vehiculo_propietario">
+          <End Role="propietario" Type="pruebaModel.propietario" Multiplicity="1" />
+          <End Role="vehiculo" Type="pruebaModel.vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="propietario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vehiculo">
+              <PropertyRef Name="id_propietario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pruebaModelStoreContainer" CdmEntityContainer="ParqueoEntity">
+          <EntitySetMapping Name="area_estacionamiento">
+            <EntityTypeMapping TypeName="pruebaModel.area_estacionamiento">
+              <MappingFragment StoreEntitySet="area_estacionamiento">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="posicion" ColumnName="posicion" />
+                <ScalarProperty Name="id_piso" ColumnName="id_piso" />
+                <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+                <ScalarProperty Name="hora_entrada" ColumnName="hora_entrada" />
+                <ScalarProperty Name="hora_salida" ColumnName="hora_salida" />
+                <ScalarProperty Name="total_facturado" ColumnName="total_facturado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="area_estacionamiento_pagos">
+            <EntityTypeMapping TypeName="pruebaModel.area_estacionamiento_pagos">
+              <MappingFragment StoreEntitySet="area_estacionamiento_pagos">
+                <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+                <ScalarProperty Name="id_area_estacionamiento" ColumnName="id_area_estacionamiento" />
+                <ScalarProperty Name="descripcion_pago" ColumnName="descripcion_pago" />
+                <ScalarProperty Name="valor_facturado" ColumnName="valor_facturado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pisoes">
+            <EntityTypeMapping TypeName="pruebaModel.piso">
+              <MappingFragment StoreEntitySet="piso">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="propietarios">
+            <EntityTypeMapping TypeName="pruebaModel.propietario">
+              <MappingFragment StoreEntitySet="propietario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehiculoes">
+            <EntityTypeMapping TypeName="pruebaModel.vehiculo">
+              <MappingFragment StoreEntitySet="vehiculo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="id_propietario" ColumnName="id_propietario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

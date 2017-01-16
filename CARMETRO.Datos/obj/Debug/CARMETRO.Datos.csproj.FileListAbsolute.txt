@@ -1,0 +1,8 @@
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Datos\bin\Debug\CARMETRO.Datos.dll.config
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Datos\bin\Debug\CARMETRO.Datos.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Datos\bin\Debug\CARMETRO.Datos.pdb
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Datos\bin\Debug\EntityFramework.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Datos\bin\Debug\EntityFramework.xml
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Datos\obj\Debug\CARMETRO.Datos.csprojResolveAssemblyReference.cache
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Datos\obj\Debug\CARMETRO.Datos.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Datos\obj\Debug\CARMETRO.Datos.pdb
