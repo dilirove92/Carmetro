@@ -1,0 +1,9 @@
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Negocio\bin\Debug\CARMETRO.Negocio.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Negocio\bin\Debug\CARMETRO.Negocio.pdb
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Negocio\bin\Debug\CARMETRO.Datos.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Negocio\bin\Debug\EntityFramework.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Negocio\bin\Debug\CARMETRO.Datos.pdb
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Negocio\bin\Debug\EntityFramework.xml
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Negocio\obj\Debug\CARMETRO.Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Negocio\obj\Debug\CARMETRO.Negocio.dll
+C:\Users\Diego\documents\visual studio 2012\Projects\CARMETRO\CARMETRO.Negocio\obj\Debug\CARMETRO.Negocio.pdb
